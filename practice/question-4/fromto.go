@@ -2,33 +2,36 @@
 
 package piscine
 
-import (
-	"fmt"
+import "strconv"
 
-	"github.com/01-edu/z01"
-)
+func FromTo(from, to int) string {
+	result := ""
 
-func FromTo(from int, to int) string {
-	if from < 0 || from > 99 || to < 0 || to > 99 {
+	if from > 99 || from < 0 || to > 99 || to < 0 {
 		return "Invalid\n"
+	} else if from == to {
+		return strconv.Itoa(from) + "\n"
 	}
-
-	var result string
-
+	if from > to {
+		for i := from; i >= to; i-- {
+			if i < 10 {
+				result += "0"
+			}
+			result += strconv.Itoa(i)
+			if i-1 >= to {
+				result += ", "
+			}
+		}
+		return result + "\n"
+	}
 	for i := from; i <= to; i++ {
 		if i < 10 {
-			z01.PrintRune('0')
+			result += "0"
 		}
-		for _, digit := range fmt.Sprintf("%d", i) {
-			z01.PrintRune(digit)
-		}
-		if i != to {
-			z01.PrintRune(',')
-			z01.PrintRune(' ')
+		result += strconv.Itoa(i)
+		if i+1 <= to {
+			result += ", "
 		}
 	}
-
-	z01.PrintRune('\n')
-
-	return result
+	return result + "\n"
 }

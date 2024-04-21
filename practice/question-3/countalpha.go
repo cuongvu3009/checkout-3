@@ -4,8 +4,8 @@ package piscine
 
 func CountAlpha(s string) int {
 	count := 0
-	for _, char := range s {
-		if (char >= 'a' && char <= 'z') || (char >= 'A' && char <= 'Z') {
+	for _, c := range s {
+		if c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' {
 			count++
 		}
 	}

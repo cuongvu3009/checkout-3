@@ -3,37 +3,14 @@
 package piscine
 
 func IsCapitalized(s string) bool {
-	// Check if the string is empty
-	if s == "" {
+	if len(s) == 0 {
 		return false
 	}
 
-	// Initialize a variable to track if each word is capitalized
-	isCapitalized := true
-
-	// Iterate over each word in the string
 	for i := 0; i < len(s); i++ {
-		// Skip leading whitespace
-		for i < len(s) && s[i] == ' ' {
-			i++
-		}
-
-		// Check if we reached the end of the string
-		if i == len(s) {
-			break
-		}
-
-		// Check if the first character of the word is lowercase
-		if s[i] >= 'a' && s[i] <= 'z' {
-			isCapitalized = false
-			break
-		}
-
-		// Move to the end of the current word
-		for i < len(s) && s[i] != ' ' {
-			i++
+		if s[i] >= 'a' && s[i] <= 'z' && i != 0 && s[i-1] == ' ' {
+			return false
 		}
 	}
-
-	return isCapitalized
+	return !(s[0] >= 'a' && s[0] <= 'z')
 }

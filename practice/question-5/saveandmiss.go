@@ -3,22 +3,20 @@
 package piscine
 
 func SaveAndMiss(arg string, num int) string {
-	// If num is 0 or negative, return the original string
-	if num <= 0 {
-		return arg
+	if num <= 0 || num > len(arg) {
+		return string(arg)
 	}
-
-	// Initialize a variable to store the result
-	result := ""
-
-	// Iterate over the characters of the string
-	for i, char := range arg {
-		// Check if the current index modulo num is not equal to 1
-		if (i+1)%num != 1 {
-			continue // Skip the character if it's not in a "save" position
+	_str := ""
+	for i := 0; i < len(arg); i++ {
+		if i != 0 && i%num == 0 {
+			i += num
+			if i > len(arg)-1 {
+				break
+			}
 		}
-		result += string(char) // Otherwise, save the character
+		if i != len(arg) {
+			_str += string(rune(arg[i]))
+		}
 	}
-
-	return result
+	return _str
 }

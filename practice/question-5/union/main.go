@@ -1,6 +1,6 @@
 // https://github.com/01-edu/public/tree/master/subjects/union
 
-package piscine
+package main
 
 import (
 	"os"
@@ -8,10 +8,9 @@ import (
 	"github.com/01-edu/z01"
 )
 
-func Union() {
-	// Check if the number of arguments is not equal to 3 (including the program name)
-	if len(os.Args) != 3 {
-		z01.PrintRune('\n')
+func main() {
+
+	if len(os.Args) != 3 || len(os.Args[1]) == 0 || len(os.Args[2]) == 0 {
 		return
 	}
 

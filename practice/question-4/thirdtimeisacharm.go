@@ -2,25 +2,22 @@
 
 package piscine
 
-func ThirdTimeIsACharm(str string) string {
-	// Check if the string is empty
-	if len(str) == 0 {
+import "strings"
+
+func ThirdTimeIsACharm(arg string) string {
+	if arg == "" || len(arg) < 3 {
 		return "\n"
 	}
-
-	// Initialize a variable to store the result
-	result := ""
-
-	// Iterate over the characters of the string
-	for i := 2; i < len(str); i += 3 {
-		result += string(str[i])
+	var str strings.Builder
+	for i := 0; i < len(arg); i++ {
+		if i == 0 {
+			continue
+		}
+		j := i + 1
+		if j%3 == 0 {
+			str.WriteRune(rune(arg[i]))
+		}
 	}
-
-	// If there are no third characters, return a newline
-	if result == "" {
-		return "\n"
-	}
-
-	// Return the result followed by a newline
-	return result + "\n"
+	str.WriteRune(rune('\n'))
+	return (str.String())
 }

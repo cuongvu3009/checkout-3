@@ -2,7 +2,11 @@
 
 package piscine
 
-import "os"
+import (
+	"os"
+
+	"github.com/01-edu/z01"
+)
 
 func Inter() {
 	// Check if the number of arguments is not equal to 3 (including the program name)
@@ -26,12 +30,12 @@ func Inter() {
 	for _, char := range str2 {
 		if seen[char] {
 			// Print the character if it's present in the first string
-			print(string(char))
+			z01.PrintRune(char)
 			// Mark the character as seen to avoid duplicates
 			delete(seen, char)
 		}
 	}
 
 	// Print a newline at the end
-	println()
+	z01.PrintRune('\n')
 }

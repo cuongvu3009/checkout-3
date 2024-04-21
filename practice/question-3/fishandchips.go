@@ -7,13 +7,14 @@ func FishAndChips(n int) string {
 		return "error: number is negative"
 	}
 
-	if n%2 == 0 && n%3 == 0 {
+	if (n%2 == 0) && (n%3 == 0) {
 		return "fish and chips"
-	} else if n%2 == 0 {
+	}
+	if n%2 == 0 {
 		return "fish"
-	} else if n%3 == 0 {
+	}
+	if n%3 == 0 {
 		return "chips"
 	}
-
 	return "error: non divisible"
 }

@@ -2,9 +2,9 @@
 
 package piscine
 
-func CheckNumber(arg string) bool {
-	for _, char := range arg {
-		if char >= '0' && char <= '9' {
+func CheckNumber(str string) bool {
+	for _, c := range str {
+		if c >= '0' && c <= '9' {
 			return true
 		}
 	}
