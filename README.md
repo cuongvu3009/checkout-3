@@ -25,7 +25,7 @@ Saveandmiss
 Concatslice
 Union
 Inter
-Reverstrcal
+Reversestrcap
 Wdmatch
 Fifthandskip
 Slice
