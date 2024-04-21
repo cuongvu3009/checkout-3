@@ -27,11 +27,11 @@ Union
 Inter
 Reversestrcap
 Wdmatch
-Fifthandskip
-Slice
+
 
 Quest-6
-
+Fifthandskip
+Slice
 Revconcatalternate
 Notdecimal
 Wordflip
