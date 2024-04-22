@@ -1,6 +1,6 @@
 // https://github.com/01-edu/public/tree/master/subjects/printmemory
 
-package piscine
+package main
 
 import (
 	"github.com/01-edu/z01"
@@ -16,7 +16,6 @@ func PrintMemory(arr [10]byte) {
 
 		z01.PrintRune(' ')
 
-		// Go to another line after print 4 items
 		if i%4 == 3 {
 			z01.PrintRune('\n')
 		}
@@ -27,7 +26,6 @@ func PrintMemory(arr [10]byte) {
 	// Print ASCII characters
 	for i := 0; i < len(arr); i++ {
 		char := arr[i]
-		// Check if char is printable
 		if char >= 32 && char <= 126 {
 			z01.PrintRune(rune(char))
 		} else {
@@ -42,4 +40,8 @@ func hexDigitToRune(digit byte) rune {
 		return rune('0' + digit)
 	}
 	return rune('A' + digit - 10)
+}
+
+func main() {
+	PrintMemory([10]byte{'h', 'e', 'l', 'l', 'o', 16, 21, '*'})
 }
