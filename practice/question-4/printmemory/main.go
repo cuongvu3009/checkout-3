@@ -1,6 +1,6 @@
 // https://github.com/01-edu/public/tree/master/subjects/printmemory
 
-package piscine
+package main
 
 import (
 	"github.com/01-edu/z01"
@@ -43,3 +43,13 @@ func hexDigitToRune(digit byte) rune {
 	}
 	return rune('A' + digit - 10)
 }
+
+func main() {
+	PrintMemory([10]byte{'h', 'e', 'l', 'l', 'o', 16, 21, '*'})
+}
+
+// Output:
+// 68 65 6c 6c$
+// 6f 10 15 2a$
+// 00 00$
+// hello..*..$

@@ -1,6 +1,14 @@
 // https://github.com/01-edu/public/tree/master/subjects/capitalize
 
-package piscine
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	fmt.Println(Capitalize("Hello! How are you? How+are+things+4you?"))
+}
 
 func Capitalize(s string) string {
 

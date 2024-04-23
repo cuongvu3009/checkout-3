@@ -1,6 +1,6 @@
 // https://github.com/01-edu/public/tree/master/subjects/printrevcomb
 
-package piscine
+package main
 
 import (
 	"github.com/01-edu/z01"
@@ -26,3 +26,9 @@ func PrintRevComb() {
 	}
 	z01.PrintRune('\n')
 }
+
+func main() {
+	PrintRevComb()
+}
+
+// Output: 987, 986, 985, 984, 983, 982, 981, 980, 976, ..., 310, 210
