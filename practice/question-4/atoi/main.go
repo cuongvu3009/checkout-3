@@ -27,26 +27,26 @@ func Atoi(s string) int {
 		Tadaaa!!!!
 	*/
 
-	slicy := []rune(s)
+	sr := []rune(s)
 	var sign int = 1
 	var answer int
 
-	if slicy[0] == '+' {
+	if sr[0] == '+' {
 		sign = 1
-		slicy = slicy[1:]
+		sr = sr[1:]
 	}
 
-	if slicy[0] == '-' {
+	if sr[0] == '-' {
 		sign = -1
-		slicy = slicy[1:]
+		sr = sr[1:]
 	}
 
-	for i := 0; i < len(slicy); i++ {
-		if slicy[i] < '0' || slicy[i] > '9' {
+	for i := 0; i < len(sr); i++ {
+		if sr[i] < '0' || sr[i] > '9' {
 			return 0
 		}
 
-		answer = answer*10 + int(slicy[i]-'0')
+		answer = answer*10 + int(sr[i]-'0')
 	}
 
 	answer = answer * sign

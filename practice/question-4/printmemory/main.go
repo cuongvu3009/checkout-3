@@ -8,27 +8,37 @@ import (
 
 func PrintMemory(arr [10]byte) {
 	// Print hexadecimal memory representation
+
+	//First part
 	for i, c := range arr {
-		hexDigit := c >> 4
-		z01.PrintRune(hexDigitToRune(hexDigit))
-		hexDigit = c & 0x0F
-		z01.PrintRune(hexDigitToRune(hexDigit))
+
+		hexDigit1 := c / 16
+		hexDigit2 := c % 16
+
+		z01.PrintRune(hexMapper(hexDigit1))
+		z01.PrintRune(hexMapper(hexDigit2))
 
 		z01.PrintRune(' ')
 
-		// Go to another line after print 4 items
 		if i%4 == 3 {
 			z01.PrintRune('\n')
 		}
-
 	}
-	z01.PrintRune('\n')
 
-	// Print ASCII characters
-	for i := 0; i < len(arr); i++ {
-		char := arr[i]
-		// Check if char is printable
-		if char >= 32 && char <= 126 {
+	z01.PrintRune('\n')
+	printInputCustom(arr)
+}
+
+func PrintString(s string) {
+	for _, v := range s {
+		z01.PrintRune(v)
+	}
+}
+
+// print input string as required
+func printInputCustom(arr [10]byte) {
+	for _, char := range arr {
+		if char >= ' ' && char <= '~' {
 			z01.PrintRune(rune(char))
 		} else {
 			z01.PrintRune('.')
@@ -37,11 +47,43 @@ func PrintMemory(arr [10]byte) {
 	z01.PrintRune('\n')
 }
 
-func hexDigitToRune(digit byte) rune {
-	if digit < 10 {
-		return rune('0' + digit)
+func hexMapper(digit byte) rune {
+	switch digit {
+	case 0:
+		return '0'
+	case 1:
+		return '1'
+	case 2:
+		return '2'
+	case 3:
+		return '3'
+	case 4:
+		return '4'
+	case 5:
+		return '5'
+	case 6:
+		return '6'
+	case 7:
+		return '7'
+	case 8:
+		return '8'
+	case 9:
+		return '9'
+	case 10:
+		return 'A'
+	case 11:
+		return 'B'
+	case 12:
+		return 'C'
+	case 13:
+		return 'D'
+	case 14:
+		return 'E'
+	case 15:
+		return 'F'
+	default:
+		return ' '
 	}
-	return rune('A' + digit - 10)
 }
 
 func main() {
