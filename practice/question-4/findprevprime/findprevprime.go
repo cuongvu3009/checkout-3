@@ -12,28 +12,23 @@ func main() {
 
 func FindPrevPrime(nb int) int {
 	for i := nb; i > 1; i-- {
-		if isprime(i) {
+		if isPrime(i) {
 			return i
 		}
 	}
-
 	return 0
 }
 
-func isprime(n int) bool {
-	if n < 2 || n%2 == 0 {
+func isPrime(n int) bool {
+	if n <= 1 {
 		return false
 	}
 
-	if n == 2 {
-		return true
-	}
-
-	for i := 3; i*i < n; i = i + 2 {
+	for i := 2; i*i <= n; i++ {
 		if n%i == 0 {
 			return false
 		}
-	}
 
+	}
 	return true
 }

@@ -70,17 +70,17 @@ func hexMapper(digit byte) rune {
 	case 9:
 		return '9'
 	case 10:
-		return 'A'
+		return 'a'
 	case 11:
-		return 'B'
+		return 'b'
 	case 12:
-		return 'C'
+		return 'c'
 	case 13:
-		return 'D'
+		return 'd'
 	case 14:
-		return 'E'
+		return 'e'
 	case 15:
-		return 'F'
+		return 'f'
 	default:
 		return ' '
 	}
