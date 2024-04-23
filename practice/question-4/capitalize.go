@@ -3,27 +3,36 @@
 package piscine
 
 func Capitalize(s string) string {
-	// Convert the string to a rune slice
-	r := []rune(s)
 
-	// Check if the first character is a lowercase letter
-	if r[0] >= 'a' && r[0] <= 'z' {
-		// Convert the first character to uppercase
-		r[0] -= 32
-	}
+	//alphanumeric check function
+	//islowercase check function
+	//Capitalizer function
 
-	// Iterate over the remaining characters
-	for i := 1; i < len(r); i++ {
-		// Check if the previous character is not a digit and not a lowercase letter
-		if !(r[i-1] >= '0' && r[i-1] <= '9') && !(r[i-1] >= 'a' && r[i-1] <= 'z') {
-			// Check if the current character is a lowercase letter
-			if r[i] >= 'a' && r[i] <= 'z' {
-				// Convert the current character to uppercase
-				r[i] -= 32
-			}
+	slicy := []rune(s)
+
+	for i := 0; i < len(slicy); i++ {
+
+		if i == 0 || !alphanumeric(slicy[i-1]) && alphanumeric(slicy[i]) {
+			slicy[i] = Capitalizer(slicy[i])
 		}
 	}
+	return string(slicy)
+}
 
-	// Convert the rune slice back to a string and return it
-	return string(r)
+func alphanumeric(each rune) bool {
+
+	return ('a' <= each && each <= 'z' || 'A' <= each && each <= 'Z' || '0' <= each && each <= '9')
+
+}
+
+func islower(input rune) bool {
+	return 'a' <= input && input <= 'z'
+}
+
+func Capitalizer(meow rune) rune {
+	if islower(meow) {
+		meow = meow - ('a' - 'A')
+	}
+
+	return meow
 }
